@@ -1,0 +1,23 @@
+@mixin ti {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    overflow: hidden; //超出隐藏
+    text-overflow: ellipsis; //溢出显示省略号
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+}
+
+@mixin ct {
+    width: 100%;
+    overflow: hidden; //超出隐藏
+    text-overflow: ellipsis; //溢出显示省略号
+    display: -webkit-box;
+    -webkit-line-clamp: 1; //显示3行
+    -webkit-box-orient: vertical;
+    line-height: 26px;
+    font-size: 0.8rem;
+    color: grey;
+}

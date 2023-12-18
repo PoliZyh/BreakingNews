@@ -45,6 +45,7 @@ const props = defineProps({
     gap: 20px;
     position: relative;
     cursor: pointer;
+    background-color: white;
     &:hover {
         background-color: whitesmoke;
     }
@@ -75,7 +76,7 @@ const props = defineProps({
                 overflow: hidden; //超出隐藏
                 text-overflow: ellipsis; //溢出显示省略号
                 display: -webkit-box;
-                -webkit-line-clamp: 1; //显示3行
+                -webkit-line-clamp: 1; 
                 -webkit-box-orient: vertical;
                 line-height: 20px;
             }
