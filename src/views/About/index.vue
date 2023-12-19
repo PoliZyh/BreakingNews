@@ -16,14 +16,12 @@
                             <el-input placeholder="请输入标题关键词" v-model="searchParams.title"></el-input>
                         </div>
                         <div class="btns" style="margin-top: 10px;">
-                            <el-button size="small" type="primary">搜索</el-button>
+                            <el-button size="small" type="primary" @click="handleSearchIt">搜索</el-button>
                             <el-button size="small" @click="isShowDialog = true; resetParams()">聚合</el-button>
                             <el-button size="small" type="danger" @click="resetAll">重制</el-button>
                         </div>
-                        <template v-if="Object.keys(searchParams).length > 2">
-                            <p class="content" style="margin-top: 5px;">当前已聚合: {{ Object.keys(searchParams).length - 2 }} 条
-                            </p>
-                        </template>
+                        <p class="content" style="margin-top: 5px;">当前已聚合: {{ Object.keys(searchParams).filter(pm => searchParams[pm] !== '' && searchParams[pm] !== 0).length }} 条
+                        </p>
                     </div>
                 </div>
                 <div class="lists-mid">
@@ -48,7 +46,8 @@
                     </div>
                     <div class="right-item">
                         <p class="title">新闻时间</p>
-                        <Calender :dot-days="doyDays" @change="handleChangeNewsTime" style="margin-top: 10px;" :current="newsTime" format="YYYY-MM-DD"></Calender>
+                        <Calender :dot-days="doyDays" @change="handleChangeNewsTime" style="margin-top: 10px;"
+                            :current="newsTime" format="YYYY-MM-DD"></Calender>
                     </div>
                 </div>
                 <div class="lists-right-b"></div>
@@ -111,7 +110,7 @@ import Nav from './components/Nav.vue';
 import ListItem from './components/ListItem.vue';
 import Loading from './components/Loading.vue'
 import Top from './components/Top.vue'
-import { showNewsReq } from '@/api/news'
+import { showNewsReq, searchNewsReq } from '@/api/news'
 import { useRoute } from 'vue-router';
 import useCategoryStore from '../../store/modules/useCategoryStore';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
@@ -127,6 +126,7 @@ const newsTime = ref('')
 const list = ref([])
 const currentNewsNum = ref(10)
 let isDown = false
+let isSearch = false
 const isLoading = ref(false)
 const doyDays = ref(["2023-12-17"])
 const isShowDialog = ref(false)
@@ -153,7 +153,10 @@ const addParams = ref({
 })
 const searchParams = ref({
     title: '',
-    isAll: 0
+    isAll: 0,
+    content: '',
+    startTime: '',
+    endTime: ''
 })
 
 const getInitNews = async () => {
@@ -170,11 +173,13 @@ const getInitNews = async () => {
 
 const handleChangeNewsTime = (val) => {
     newsTime.value = val.value
-    getInitNews()
+    // getInitNews()
+    resetAll()
 }
 
 watch(() => route.params.category, () => {
-    getInitNews()
+    // getInitNews()
+    resetAll()
 })
 
 const addMoreNews = async () => {
@@ -193,7 +198,7 @@ const addMoreNews = async () => {
 const handleScroll = async () => {
 
     const scrollElement = document.documentElement || document.body;
-    if (scrollElement.scrollTop + scrollElement.clientHeight >= scrollElement.scrollHeight && !isDown && list.value.length > 0) {
+    if (scrollElement.scrollTop + scrollElement.clientHeight >= scrollElement.scrollHeight && !isDown && list.value.length > 0 && !isSearch) {
         isDown = true
         isLoading.value = true
         await addMoreNews();
@@ -223,6 +228,22 @@ const confirmToAdd = async (type) => {
                         ''
         })
     }
+}
+
+const searchReq = async () => {
+    isSearch = true
+    list.value = []
+    const params = {
+        newsType: categoryStore.map[route.params.category].value
+    }
+    Object.assign(params, searchParams.value)
+    const res = await searchNewsReq(params)
+    list.value = res.data.newsList
+    resetParams()
+}
+
+const handleSearchIt = () => {
+    searchReq()
 }
 
 
@@ -258,8 +279,13 @@ const resetAll = () => {
     resetParams()
     searchParams.value = {
         title: '',
-        isAll: 0
+        isAll: 0,
+        content: '',
+        startTime: '',
+        endTime: ''
     }
+    isSearch = false
+    getInitNews()
 }
 
 onMounted(async () => {

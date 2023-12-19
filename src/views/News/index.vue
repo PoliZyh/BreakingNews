@@ -5,9 +5,9 @@
             <div class="screen-content">
                 <div class="header">
                     <div class="left">
-                        <div class="left-item">关于</div>
-                        <div class="left-item">新闻统计</div>
-                        <div class="left-item">订阅我们</div>
+                        <div class="left-item" @click="handleRouterByName('home')">关于</div>
+                        <div class="left-item" @click="handleRouterByName('statistics')">新闻统计</div>
+                        <div class="left-item" @click="handleRouterByName('subscribe')">订阅我们</div>
                     </div>
                     <div class="mid">
                         <img src="../../assets/imgs/logo.png" alt="">
@@ -119,6 +119,13 @@ const handleRouter = (category) => {
         }
     })
 }
+
+const handleRouterByName = (name) => {
+    router.push({
+        name: name
+    })
+}
+
 </script>
 
 

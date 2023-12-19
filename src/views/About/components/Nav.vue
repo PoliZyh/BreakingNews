@@ -1,7 +1,7 @@
 <template>
     <div class="nav-box">
         <div class="nav-left">
-            <img src="../../../assets/imgs/logo-black.png" alt="">
+            <img src="../../../assets/imgs/logo-black.png" alt="" @click="handleBack">
             <ul>
                 <li v-for="(item, key) in categoryStore.map" :key="item.ch"
                 :class="activeValue === item.value ? 'li-active' : ''"
@@ -29,6 +29,12 @@ const handleRouter = (value) => {
         params: {
             category: value
         }
+    })
+}
+
+const handleBack = () => {
+    router.push({
+        name: 'news'
     })
 }
 
@@ -63,6 +69,7 @@ onMounted(() => {
         color: #515767;
         img {
             height: 80%;
+            cursor: pointer;
         }
         ul {
             display: flex;

@@ -20,6 +20,16 @@ const routes = [
         path: '/about/:category',
         name: 'about',
         component: () => import('@/views/About/index.vue')
+    },
+    {
+        path: '/subscribe',
+        name: 'subscribe',
+        component: () => import('@/views/Subscribe/index.vue')
+    },
+    {
+        path: '/statistics',
+        name: 'statistics',
+        component: () => import('@/views/Statistics/index.vue')
     }
 ]
 
