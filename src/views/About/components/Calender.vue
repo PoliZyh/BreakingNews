@@ -63,6 +63,10 @@ const props = defineProps({
     format: {
         type: String,
         default: "YYYY-MM-DD"
+    },
+    current: {
+        type: String,
+        default: ""
     }
 })
 const sevenDay= ["日", "一", "二", "三", "四", "五", "六"];
@@ -110,10 +114,12 @@ const handleChangeCurrent = (dayjs) => {
     currentDate.value = getCalendarDate(dayjs);
     showDate.value = currentDate.value;
     dateList.value = getDateList();
+    
     emit("change", currentDate.value);
 };
 
 onMounted(() => {
+    console.log('a',props.current)
     if (props.current) {
         handleChangeCurrent(dayjs(props.current, props.format));
     } else {

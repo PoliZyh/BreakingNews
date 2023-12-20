@@ -20,14 +20,22 @@
                             <el-button size="small" @click="isShowDialog = true; resetParams()">聚合</el-button>
                             <el-button size="small" type="danger" @click="resetAll">重制</el-button>
                         </div>
-                        <p class="content" style="margin-top: 5px;">当前已聚合: {{ Object.keys(searchParams).filter(pm => searchParams[pm] !== '' && searchParams[pm] !== 0).length }} 条
+                        <p class="content" style="margin-top: 5px;">当前已聚合: {{ Object.keys(searchParams).filter(pm =>
+                            searchParams[pm] !== '' && searchParams[pm] !== 0).length }} 条
                         </p>
+                    </div>
+                    <div class="left-item tran-item">
+                        <button class="button" @click="tranAll">
+                            <div id="ui">Tran</div>翻译
+                        </button>
                     </div>
                 </div>
                 <div class="lists-mid">
                     <template v-if="list.length > 0">
-                        <ListItem v-for="item in list" :key="item.newsImage" :title="item.newsTitle"
-                            :content="item.newsContent" :img-url="item.newsImage" :time="item.newsTime"
+                        <ListItem v-for="item in list" :key="item.newsImage" 
+                            :title="isTran ? item.newsChineseTitle :item.newsTitle"
+                            :content="isTran ? item.newsChineseContent : item.newsContent" 
+                            :img-url="item.newsImage" :time="item.newsTime"
                             :link="item.newsLink" :id="item.newsId"></ListItem>
                     </template>
                     <template v-if="list.length == 0">
@@ -50,6 +58,7 @@
                         <Calender :dot-days="doyDays" @change="handleChangeNewsTime" style="margin-top: 10px;"
                             :current="newsTime" format="YYYY-MM-DD"></Calender>
                     </div>
+                    
                 </div>
                 <div class="lists-right-b"></div>
             </div>
@@ -111,8 +120,8 @@ import Nav from './components/Nav.vue';
 import ListItem from './components/ListItem.vue';
 import Loading from './components/Loading.vue'
 import Top from './components/Top.vue'
-import { showNewsReq, searchNewsReq } from '@/api/news'
-import { useRoute } from 'vue-router';
+import { showNewsReq, searchNewsReq, getNewsTimeReq } from '@/api/news'
+import { useRoute, useRouter } from 'vue-router';
 import useCategoryStore from '../../store/modules/useCategoryStore';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { getTimeNode, getTodayAndYesterday, getDatesInRange } from '../../utils/time';
@@ -121,13 +130,15 @@ import Love from './components/Love.vue'
 import dayjs from 'dayjs';
 
 const route = useRoute()
+const router = useRouter()
 const categoryStore = useCategoryStore()
 const newsLanguage = ref(0)
-const newsTime = ref('')
+const newsTime = ref(route.query.date)
 const list = ref([])
 const currentNewsNum = ref(10)
 let isDown = false
 let isSearch = false
+let isTran = ref(false)
 const isLoading = ref(false)
 const doyDays = ref(["2023-12-17"])
 const isShowDialog = ref(false)
@@ -174,6 +185,13 @@ const getInitNews = async () => {
 
 const handleChangeNewsTime = (val) => {
     newsTime.value = val.value
+    router.push({
+        name: route.name,
+        query: {
+            ...route.query,
+            date: val.value
+        }
+    })
     // getInitNews()
     resetAll()
 }
@@ -194,6 +212,10 @@ const addMoreNews = async () => {
     const res = await showNewsReq(params)
     list.value = [...list.value, ...res.data.newsList]
     currentNewsNum.value += 10
+}
+
+const tranAll = () => {
+    isTran.value = !isTran.value
 }
 
 const handleScroll = async () => {
@@ -229,6 +251,11 @@ const confirmToAdd = async (type) => {
                         ''
         })
     }
+}
+
+const getTimes = async () => {
+    const res = await getNewsTimeReq()
+    return [res.data.startTime, res.data.endTime]
 }
 
 const searchReq = async () => {
@@ -289,9 +316,20 @@ const resetAll = () => {
     getInitNews()
 }
 
+const initQuery = () => {
+    // 日期
+    const dateQuery = route.query.date
+    dateQuery && (newsTime.value = dateQuery)
+    !dateQuery && (newsTime.value = getTodayAndYesterday()[0])
+    console.log(newsTime.value)
+
+}
+
 onMounted(async () => {
-    const [today, yesterday] = getTodayAndYesterday()
-    doyDays.value = getDatesInRange("2023-12-01", yesterday)
+    // const [today, yesterday] = getTodayAndYesterday()
+    initQuery()
+    const days = await getTimes()
+    doyDays.value = getDatesInRange(days[0], days[1])
     window.addEventListener('scroll', handleScroll, true);
     await getInitNews()
 })
@@ -379,6 +417,7 @@ onBeforeUnmount(() => {
                         align-items: center;
                     }
                 }
+
             }
 
             .left-item {
@@ -394,6 +433,124 @@ onBeforeUnmount(() => {
 
                 .content {
                     @include ct;
+                }
+
+            }
+
+            .tran-item {
+                #ui {
+                    font-weight: bolder;
+                    background: -webkit-linear-gradient(#B563FF, #535EFC, #0EC8EE);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    border-bottom: 4px solid transparent;
+                    border-image: linear-gradient(0.25turn, #535EFC, #0EC8EE, #0EC8EE);
+                    border-image-slice: 1;
+                    display: inline;
+                }
+
+                .button {
+                    position: relative;
+                    padding: 20px 30px;
+                    border-radius: 6px;
+                    border: none;
+                    color: #fff;
+                    font-weight: 00;
+                    cursor: pointer;
+                    font-size: 1.5em;
+                    font-weight: 600;
+                    background-color: #2c2c2c;
+                    transition: all 0.2s ease;
+                    width: 100%;
+                }
+
+                .button:hover {
+                    background: linear-gradient(144deg, #1e1e1e, 20%, #1e1e1e 50%, #1e1e1e);
+                    transition: all 0.2s ease;
+                    color: #fff;
+                }
+
+                .button:active {
+                    transform: scale(0.96);
+                }
+
+                .button:before,
+                .button:after {
+                    position: absolute;
+                    content: "";
+                    width: 150%;
+                    left: 50%;
+                    height: 100%;
+                    transform: translateX(-50%);
+                    z-index: -1000;
+                    background-repeat: no-repeat;
+                }
+
+                .button:hover:before {
+                    top: -70%;
+                    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                        radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+                        radial-gradient(circle, #535EFC 20%, transparent 20%),
+                        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+                        radial-gradient(circle, #0EC8EE 20%, transparent 20%),
+                        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                        radial-gradient(circle, #0EC8EE 20%, transparent 20%),
+                        radial-gradient(circle, #0EC8EE 20%, transparent 20%);
+                    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+                        10% 10%, 18% 18%;
+                    background-position: 50% 120%;
+                    animation: greentopBubbles 0.6s ease;
+                }
+
+                @keyframes greentopBubbles {
+                    0% {
+                        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+                            40% 90%, 55% 90%, 70% 90%;
+                    }
+
+                    50% {
+                        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+                            50% 50%, 65% 20%, 90% 30%;
+                    }
+
+                    100% {
+                        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+                            50% 40%, 65% 10%, 90% 20%;
+                        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+                    }
+                }
+
+                .button:hover::after {
+                    bottom: -70%;
+                    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                        radial-gradient(circle, #535EFC 20%, transparent 20%),
+                        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+                        radial-gradient(circle, #535EFC 20%, transparent 20%),
+                        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+                        radial-gradient(circle, #535EFC 20%, transparent 20%),
+                        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+                    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+                    background-position: 50% 0%;
+                    animation: greenbottomBubbles 0.6s ease;
+                }
+
+                @keyframes greenbottomBubbles {
+                    0% {
+                        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+                            70% -10%, 70% 0%;
+                    }
+
+                    50% {
+                        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+                            105% 0%;
+                    }
+
+                    100% {
+                        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+                            110% 10%;
+                        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+                    }
                 }
             }
 
