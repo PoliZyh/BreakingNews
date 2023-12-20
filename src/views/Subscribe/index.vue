@@ -31,7 +31,7 @@
                     <div class="sub-day">
                         <span>订阅天数</span>
                         <div class="PB-range-slider-div" style="width: 70%;">
-                            <input type="range" min="0" max="100" value="50" class="PB-range-slider" id="myRange" v-model="subParams.subscribe">
+                            <input type="range" min="0" max="100" value="50" class="PB-range-slider" id="myRange" v-model.number="subParams.subscribe">
                             <p class="PB-range-slidervalue">{{ subParams.subscribe }}</p>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ const inputs = ref([
 ])
 const inputRefs = ref([])
 const subParams = ref({
-    subscribe: 50,
+    subscribe: 30,
     phoneNumber: '',
     newsType: ''
 })

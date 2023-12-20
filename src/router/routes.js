@@ -30,6 +30,11 @@ const routes = [
         path: '/statistics',
         name: 'statistics',
         component: () => import('@/views/Statistics/index.vue')
+    },
+    {
+        path: '/article/:id',
+        name: 'article',
+        component: () => import('@/views/Article/index.vue')
     }
 ]
 

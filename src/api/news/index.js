@@ -35,3 +35,30 @@ export const addNewsSubReq = (data) => {
         data
     })
 }
+
+// 5. 翻译某条新闻
+export const translateNewsReq = (data) => {
+    return request({
+        url: '/news/translate',
+        method: "POST",
+        data
+    })
+}
+
+// 6. 获取某条新闻的具体内容
+export const getNewsDetailReq = (data) => {
+    return request({
+        url: '/news/get',
+        method: "POST",
+        data
+    })
+}
+
+// 7. 获取新闻数据的起始时间以及终止时间
+export const getNewsTimeReq = (data) => {
+    return request({
+        url: '/news/date',
+        method: "GET",
+        data
+    })
+}

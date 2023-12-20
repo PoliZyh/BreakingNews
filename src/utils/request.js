@@ -17,12 +17,12 @@ request.interceptors.request.use((config) => {
 request.interceptors.response.use(
   (response) => {
     // 成功的回调
-    if (response.data.message) {
-      ElMessage({
-        type: 'success',
-        message: response.data.message
-      })
-    }
+    // if (response.data.message) {
+    //   ElMessage({
+    //     type: 'success',
+    //     message: response.data.message
+    //   })
+    // }
     return response.data
   },
   (error) => {

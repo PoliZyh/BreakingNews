@@ -27,7 +27,8 @@
                 <div class="lists-mid">
                     <template v-if="list.length > 0">
                         <ListItem v-for="item in list" :key="item.newsImage" :title="item.newsTitle"
-                            :content="item.newsContent" :img-url="item.newsImage" :time="item.newsTime"></ListItem>
+                            :content="item.newsContent" :img-url="item.newsImage" :time="item.newsTime"
+                            :link="item.newsLink" :id="item.newsId"></ListItem>
                     </template>
                     <template v-if="list.length == 0">
                         <Loading></Loading>
