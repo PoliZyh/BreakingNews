@@ -11,7 +11,6 @@
 </template>
 
 
-
 <style scoped >
 .love-heart:before,
 #switch {

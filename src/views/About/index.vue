@@ -363,7 +363,7 @@ onBeforeUnmount(() => {
     .body {
         min-height: 100%;
         width: 100%;
-        background-color: #f2f3f5;
+        background-color: var(--th-body-color);
         padding: 10px 0;
         padding-top: 70px;
 
@@ -422,17 +422,19 @@ onBeforeUnmount(() => {
 
             .left-item {
                 width: 100%;
-                background-color: white;
+                background-color: var(--th-card-color);
                 padding: 20px;
                 border-radius: 5px;
                 margin-bottom: 10px;
 
                 .title {
                     @include ti;
+                    color: var(--th-title-color);
                 }
 
                 .content {
                     @include ct;
+                    color: var(--th-content-color);
                 }
 
             }
@@ -564,7 +566,7 @@ onBeforeUnmount(() => {
 
             .right-item {
                 width: 100%;
-                background-color: white;
+                background-color: var(--th-card-color);
                 padding: 20px;
                 margin-bottom: 10px;
                 border-radius: 5px;
@@ -579,10 +581,12 @@ onBeforeUnmount(() => {
 
                 .title {
                     @include ti;
+                    color: var(--th-title-color)
                 }
 
                 .content {
                     @include ct;
+                    color: var(--th-content-color);
                 }
             }
         }

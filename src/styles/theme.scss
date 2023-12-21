@@ -1,0 +1,20 @@
+:root {
+    --th-body-color: #f2f3f5;
+    --th-header-color: white;
+    --th-card-color: white;
+    --th-title-color: #202225;
+    --th-content-color: grey;
+    --th-card-hover-color: whitesmoke;
+    --th-box-shadow-color: #f2f3f5;
+    --th-nav-color: #515767;
+}
+[theme-mode="dark"] {
+    --th-body-color: #212121;
+    --th-header-color: black;
+    --th-card-color: #36393d;
+    --th-title-color: #f2f3f5;
+    --th-content-color: #b0b0b0;
+    --th-card-hover-color: #4c4f53;
+    --th-box-shadow-color: #36393d;
+    --th-nav-color: #f2f3f5;
+}

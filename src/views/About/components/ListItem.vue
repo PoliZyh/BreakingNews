@@ -27,6 +27,7 @@
 <script setup>
 import dayjs from 'dayjs';
 import { useRouter, useRoute } from 'vue-router';
+import useThemeStore from '../../../store/modules/useThemeStore';
 
 const props = defineProps({
     title: String,
@@ -38,6 +39,7 @@ const props = defineProps({
 })
 const router = useRouter()
 const route = useRoute()
+const themeStore = useThemeStore()
 
 const handleRouter = () => {
     const splink = props.link.split('/')
@@ -49,7 +51,8 @@ const handleRouter = () => {
         query: {
             link: splink[splink.length - 1],
             type: route.params.category,
-            time: dayjs(props.time).format('YYYY-MM-DD')
+            time: dayjs(props.time).format('YYYY-MM-DD'),
+            th: themeStore.dark
         }
     }).href
     window.open(href, "_blank");
@@ -67,9 +70,9 @@ const handleRouter = () => {
     gap: 20px;
     position: relative;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--th-card-color);
     &:hover {
-        background-color: whitesmoke;
+        background-color: var(--th-card-hover-color);
     }
     &::after {
         content: '';
@@ -90,7 +93,7 @@ const handleRouter = () => {
         width: 70%;
         .title {
             width: 100%;
-
+            color: var(--th-title-color);
             span {
                 font-size: 1rem;
                 font-weight: 600;
@@ -113,7 +116,7 @@ const handleRouter = () => {
             -webkit-box-orient: vertical;
             line-height: 20px;
             font-size: 0.9rem;
-            color: grey;
+            color: var(--th-content-color);
         }
 
         .icons {
@@ -122,7 +125,7 @@ const handleRouter = () => {
             gap: 5px;
             width: 100%;
             font-size: 0.9rem;
-            color: grey;
+            color: var(--th-content-color);
         }
 
         .item {

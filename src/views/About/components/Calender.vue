@@ -69,7 +69,7 @@ const props = defineProps({
         default: ""
     }
 })
-const sevenDay= ["日", "一", "二", "三", "四", "五", "六"];
+const sevenDay = ["日", "一", "二", "三", "四", "五", "六"];
 const dateList = ref([]);
 
 const getCalendarDate = (dayjs) => {
@@ -114,12 +114,12 @@ const handleChangeCurrent = (dayjs) => {
     currentDate.value = getCalendarDate(dayjs);
     showDate.value = currentDate.value;
     dateList.value = getDateList();
-    
+
     emit("change", currentDate.value);
 };
 
 onMounted(() => {
-    console.log('a',props.current)
+    console.log('a', props.current)
     if (props.current) {
         handleChangeCurrent(dayjs(props.current, props.format));
     } else {
@@ -138,7 +138,8 @@ onMounted(() => {
         height: 22px;
         padding: 0 12px;
         font-size: 14px;
-        color: var(--el-text-color-primary);
+        // color: var(--el-text-color-primary);
+        color: var(--th-title-color);
     }
 
     .calendar-main {
@@ -158,8 +159,9 @@ onMounted(() => {
             font-size: 14px;
             font-weight: 400;
             line-height: 24px;
-            color: var(--el-text-color-primary);
             text-align: center;
+            color: var(--th-title-color);
+
         }
 
         th {
@@ -179,7 +181,7 @@ onMounted(() => {
         }
 
         &:hover {
-            background: var(--el-color-primary-light-9);
+            background: var(--th-card-hover-color);
         }
 
         &--today {
@@ -201,6 +203,7 @@ onMounted(() => {
 
 .hand {
     cursor: pointer;
-}</style>
+}
+</style>
   
   
