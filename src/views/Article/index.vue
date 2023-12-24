@@ -105,7 +105,7 @@ const getNews = async () => {
     const res = await getNewsDetailReq({
         newsType: categoryStore.map[type.value].value,
         newsTime: time.value,
-        newsID: id.value
+        newsId: parseInt(id.value)
     })
     news.value.title = res.data.newsTitle
     news.value.content = res.data.newsContent
@@ -137,6 +137,13 @@ const read = () => {
     const speech = new SpeechSynthesisUtterance();
     speech.text = news.value.content;
     speech.lang = isTran ? 'zh-CN' : 'ja-JP'
+    // let currentIndex = 0;
+    // speech.addEventListener('boundary', (event) => {
+    //     const { charIndex } = event;
+    //     currentIndex = charIndex;
+    //     // 在这里你可以根据 charIndex 做一些标记的操作
+    //     console.log('Current Index:', currentIndex);
+    // });
     window.speechSynthesis.speak(speech);
 }
 
@@ -144,7 +151,7 @@ const tranNews = async () => {
     const res = await translateNewsReq({
         newsType: categoryStore.map[type.value].value,
         newsTime: time.value,
-        newsID: id.value
+        newsId: parseInt(id.value)
     })
     news.value.title = res.data.newsTitle
     news.value.content = res.data.newsContent

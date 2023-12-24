@@ -285,7 +285,7 @@ const handleConfirmToAdd = () => {
             searchParams.value.startTime = `${format(addParams.value.time[0])}`
             searchParams.value.endTime = `${format(addParams.value.time[1])}`
         } else if (item.type === 1) {
-            searchParams.value.content = item.content
+            searchParams.value.content = item.content.split('新闻体')[1]
         } else if (item.type === 2) {
             searchParams.value.isAll = 1
         }
@@ -320,13 +320,14 @@ const initQuery = () => {
     // 日期
     const dateQuery = route.query.date
     dateQuery && (newsTime.value = dateQuery)
-    !dateQuery && (newsTime.value = getTodayAndYesterday()[0])
+    !dateQuery && (newsTime.value = getTodayAndYesterday()[1])
     console.log(newsTime.value)
 
 }
 
 onMounted(async () => {
     // const [today, yesterday] = getTodayAndYesterday()
+    // console.log(yesterday)
     initQuery()
     const days = await getTimes()
     doyDays.value = getDatesInRange(days[0], days[1])
