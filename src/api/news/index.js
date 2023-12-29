@@ -62,3 +62,12 @@ export const getNewsTimeReq = (data) => {
         data
     })
 }
+
+// 8. 获取每个栏目的订阅人数
+export const getSubNumReq = (data) => {
+    return request({
+        url: '/news/typeNum',
+        method: "GET",
+        data
+    })
+}

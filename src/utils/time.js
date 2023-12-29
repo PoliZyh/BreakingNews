@@ -27,3 +27,28 @@ export const getTodayAndYesterday = () => {
     const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD');
     return [yesterday, today]
 }
+
+
+export const calculateTimeDifference = (startDateStr) => {
+    // 获取当前日期和时间
+    const startDate = new Date(startDateStr);
+
+    // 获取当前日期和时间
+    const currentDate = new Date();
+
+    // 计算时间差
+    const timeDifference = currentDate - startDate;
+
+    // 将时间差转换为天、小时、分钟和秒
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    return {
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}

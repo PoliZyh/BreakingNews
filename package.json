@@ -13,6 +13,7 @@
     "axios": "^1.6.2",
     "canvas-confetti": "^1.9.2",
     "dayjs": "^1.11.10",
+    "echarts": "^5.4.3",
     "element-plus": "^2.4.3",
     "lax.js": "^2.0.3",
     "pinia": "^2.1.7",
