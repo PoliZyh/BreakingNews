@@ -31,15 +31,18 @@
                     </div>
                 </div>
                 <div class="lists-mid">
-                    <template v-if="list.length > 0">
+                    <template v-if="list && list.length > 0">
                         <ListItem v-for="item in list" :key="item.newsImage" 
                             :title="isTran ? item.newsChineseTitle :item.newsTitle"
                             :content="isTran ? item.newsChineseContent : item.newsContent" 
                             :img-url="item.newsImage" :time="item.newsTime"
                             :link="item.newsLink" :id="item.newsId"></ListItem>
                     </template>
-                    <template v-if="list.length == 0">
+                    <template v-if="list && list.length == 0">
                         <Loading></Loading>
+                    </template>
+                    <template v-if="!list">
+                        木有数据
                     </template>
                 </div>
 
@@ -62,7 +65,8 @@
                 </div>
                 <div class="lists-right-b"></div>
             </div>
-            <Loading v-if="isLoading"></Loading>
+            <Loading v-if="isLoading && !hasCompleted" style="margin-top: 20px; margin-bottom: 20px;"></Loading>
+            <p v-if="hasCompleted" style="width: 100%; text-align: center; margin-top: 10px; margin-bottom: 10px;">----已经到最低了----</p>
         </div>
         <div class="to-top">
             <Top></Top>
@@ -130,12 +134,13 @@ import Love from './components/Love.vue'
 import dayjs from 'dayjs';
 
 const route = useRoute()
+const hasCompleted = ref(false)
 const router = useRouter()
 const categoryStore = useCategoryStore()
 const newsLanguage = ref(0)
 const newsTime = ref(route.query.date)
 const list = ref([])
-const currentNewsNum = ref(10)
+const currentNewsNum = ref(18)
 let isDown = false
 let isSearch = false
 let isTran = ref(false)
@@ -172,11 +177,12 @@ const searchParams = ref({
 })
 
 const getInitNews = async () => {
+    hasCompleted.value = false
     list.value = []
     const params = {
         newsType: categoryStore.map[route.params.category].value,
         newsLanguage: newsLanguage.value,
-        initSize: 10,
+        initSize: 18,
         newsTime: newsTime.value
     }
     const res = await showNewsReq(params)
@@ -211,7 +217,11 @@ const addMoreNews = async () => {
     }
     const res = await showNewsReq(params)
     list.value = [...list.value, ...res.data.newsList]
-    currentNewsNum.value += 10
+    if (res.data.newsList.length < 10) {
+        console.log('l', res.data.newsList.length)
+        hasCompleted.value = true
+    }
+    currentNewsNum.value += res.data.newsList.length
 }
 
 const tranAll = () => {
@@ -221,7 +231,7 @@ const tranAll = () => {
 const handleScroll = async () => {
 
     const scrollElement = document.documentElement || document.body;
-    if (scrollElement.scrollTop + scrollElement.clientHeight >= scrollElement.scrollHeight && !isDown && list.value.length > 0 && !isSearch) {
+    if (scrollElement.scrollTop + scrollElement.clientHeight >= scrollElement.scrollHeight - 30 && !isDown && list.value.length > 0 && !isSearch) {
         isDown = true
         isLoading.value = true
         await addMoreNews();
@@ -313,6 +323,8 @@ const resetAll = () => {
         endTime: ''
     }
     isSearch = false
+    currentNewsNum.value = 18
+    hasCompleted.value = false
     getInitNews()
 }
 
@@ -365,7 +377,7 @@ onBeforeUnmount(() => {
         min-height: 100%;
         width: 100%;
         background-color: var(--th-body-color);
-        padding: 10px 0;
+        padding: 10px 0 0px;
         padding-top: 70px;
 
         .lists {

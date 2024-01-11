@@ -43,11 +43,9 @@
                     <div class="content-left">
                         <div class="book">
                             <p class="details">
-                                <span class="title">Hello</span>
+                                <span class="title">【義家族との間】「息子は私が養う」メンタル不調の無職夫と義母とのタワマン暮らし。その居心地とは～その2～(サライ.jp)</span>
                                 <span class="book-news-content">
-                                    Permission is hereby granted, free of charge, to any person obtaining a copy of this
-                                    software and associated documentation files (the “Software”), to deal in the Software
-                                    without restriction, including without limitation the rights to use, copy, modify,
+                                    取材・文／ふじのあやこ 家族の中には、血縁のない『義（理の）家族』という間柄がある。結婚相手の親族関係を指すことが一般的だが、離婚件数が増える現在では、親の再婚相手や、再婚相手の連れ子など、家族の
                                 </span>
                             </p>
                             <div class="cover">
@@ -66,20 +64,16 @@
                            
                                 <svg t="1702648900332" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2392" width="200" height="200"><path d="M682.666667 778.666667a53.393333 53.393333 0 0 1 53.333333-53.333334h201.86q0.8-10.6 0.806667-21.333333V96a53.393333 53.393333 0 0 0-53.333334-53.333333H181.333333a53.393333 53.393333 0 0 0-53.333333 53.333333v832a53.393333 53.393333 0 0 0 53.333333 53.333333h480q10.733333 0 21.333334-0.806666z m-64-565.333334h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667z m0 170.666667h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667zM298.666667 234.666667a21.333333 21.333333 0 0 1 38-13.333334l132.666666 165.853334V234.666667a21.333333 21.333333 0 0 1 42.666667 0v213.333333a21.333333 21.333333 0 0 1-38 13.333333L341.333333 295.48V448a21.333333 21.333333 0 0 1-42.666666 0z m21.333333 362.666666h426.666667a21.333333 21.333333 0 0 1 0 42.666667H320a21.333333 21.333333 0 0 1 0-42.666667z m298.666667 213.333334H320a21.333333 21.333333 0 0 1 0-42.666667h298.666667a21.333333 21.333333 0 0 1 0 42.666667z m312.586666-42.666667A277.406667 277.406667 0 0 1 725.333333 973.92V778.666667a10.666667 10.666667 0 0 1 10.666667-10.666667z" fill="#5C5C66" p-id="2393"></path></svg>
                                 <div class="card__content">
-                                    <p class="card__title">Card Title</p>
-                                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam, quis nostrud exercitation ullamco.</p>
+                                    <p class="card__title">絶品！肉とサラダ「冬のおもてなし」喜ばれるレシピ3選(Web eclat)</p>
+                                    <p class="card__description">おもてなしで喜ばれるメニューは「肉」と「サラダ」。歓声が上がるほど美味しい人気料理家の絶品レシピをご紹介。</p>
                                 </div>
                             </div>
                             <div class="card card2">
                                 <svg t="1702648900332" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2392" width="200" height="200"><path d="M682.666667 778.666667a53.393333 53.393333 0 0 1 53.333333-53.333334h201.86q0.8-10.6 0.806667-21.333333V96a53.393333 53.393333 0 0 0-53.333334-53.333333H181.333333a53.393333 53.393333 0 0 0-53.333333 53.333333v832a53.393333 53.393333 0 0 0 53.333333 53.333333h480q10.733333 0 21.333334-0.806666z m-64-565.333334h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667z m0 170.666667h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667zM298.666667 234.666667a21.333333 21.333333 0 0 1 38-13.333334l132.666666 165.853334V234.666667a21.333333 21.333333 0 0 1 42.666667 0v213.333333a21.333333 21.333333 0 0 1-38 13.333333L341.333333 295.48V448a21.333333 21.333333 0 0 1-42.666666 0z m21.333333 362.666666h426.666667a21.333333 21.333333 0 0 1 0 42.666667H320a21.333333 21.333333 0 0 1 0-42.666667z m298.666667 213.333334H320a21.333333 21.333333 0 0 1 0-42.666667h298.666667a21.333333 21.333333 0 0 1 0 42.666667z m312.586666-42.666667A277.406667 277.406667 0 0 1 725.333333 973.92V778.666667a10.666667 10.666667 0 0 1 10.666667-10.666667z" fill="#5C5C66" p-id="2393"></path></svg>
                          
                                 <div class="card__content">
-                                    <p class="card__title">Card Title</p>
-                                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam, quis nostrud exercitation ullamco.</p>
+                                    <p class="card__title">デートで着たい、女子ウケ必至のほっこりニット3選。(MEN’S NON-NO WEB)</p>
+                                    <p class="card__description">「もうすぐ30歳になるので、クラシカルなアイテムを選ぶ振り幅を大きくしたいと思っていました。</p>
                                 </div>
                             </div>
                         </div>
@@ -89,19 +83,15 @@
 
 
                                 <div class="card__content">
-                                    <p class="card__title">Card Title</p>
-                                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam, quis nostrud exercitation ullamco.</p>
+                                    <p class="card__title">結婚相手を選ぶときに妥協しない方がいいこと。</p>
+                                    <p class="card__description">学生時代から長年付き合った人と別れて3年経ちました。彼が社会人になり価値観が変わったのか元々の本性が出たのか、別人のように変わってしまいました</p>
                                 </div>
                             </div>
                             <div class="card card4">
                                 <svg t="1702648900332" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2392" width="200" height="200"><path d="M682.666667 778.666667a53.393333 53.393333 0 0 1 53.333333-53.333334h201.86q0.8-10.6 0.806667-21.333333V96a53.393333 53.393333 0 0 0-53.333334-53.333333H181.333333a53.393333 53.393333 0 0 0-53.333333 53.333333v832a53.393333 53.393333 0 0 0 53.333333 53.333333h480q10.733333 0 21.333334-0.806666z m-64-565.333334h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667z m0 170.666667h128a21.333333 21.333333 0 0 1 0 42.666667H618.666667a21.333333 21.333333 0 0 1 0-42.666667zM298.666667 234.666667a21.333333 21.333333 0 0 1 38-13.333334l132.666666 165.853334V234.666667a21.333333 21.333333 0 0 1 42.666667 0v213.333333a21.333333 21.333333 0 0 1-38 13.333333L341.333333 295.48V448a21.333333 21.333333 0 0 1-42.666666 0z m21.333333 362.666666h426.666667a21.333333 21.333333 0 0 1 0 42.666667H320a21.333333 21.333333 0 0 1 0-42.666667z m298.666667 213.333334H320a21.333333 21.333333 0 0 1 0-42.666667h298.666667a21.333333 21.333333 0 0 1 0 42.666667z m312.586666-42.666667A277.406667 277.406667 0 0 1 725.333333 973.92V778.666667a10.666667 10.666667 0 0 1 10.666667-10.666667z" fill="#5C5C66" p-id="2393"></path></svg>
                                 <div class="card__content">
-                                    <p class="card__title">Card Title</p>
-                                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam, quis nostrud exercitation ullamco.</p>
+                                    <p class="card__title">ホテルの朝食バイキングで懐かしいケーキを発見！</p>
+                                    <p class="card__description">子どもから大人までつい浮足立ってしまうクリスマス。今X上では、懐かしい思い出がよみがえるケーキが話題となっています。</p>
                                 </div>
                             </div>
                         </div>

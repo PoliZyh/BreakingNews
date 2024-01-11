@@ -45,12 +45,11 @@
                             即时新闻 ｜ 每日头条
                         </div>
                         <div class="title">
-                            规范创新，行稳定志愿中国资本市场30周年公募基金论坛成功举办
+                            お菓子マスターが注目する「新進気鋭パティシエの名スイーツ」完成度の高い逸品(婦人画報)
                         </div>
                         <div class="desc">
-                            投资者之所以信赖共募集心，是因为公墓基金对合规文化的特殊追求你。公墓基金良好的合规文化，是基金公司持续健康发展的基石。投资者之所以信赖共募集心，是因为公墓基金对合规文化的特殊追求你。公墓基金良好的合规文化，是基金公司持续健康发展的基石。
+                            いま、この瞬間にも画期的なスイーツが生まれ、バリエーションが拡大中の日本のスイーツの世界。そのなかでお菓子マスターたちが注目する、新進気鋭のパティシエの一品を教えてくれました。
                         </div>
-                        <p class="more">查看全文 ></p>
                     </div>
                     <div class="content-right">
                         <div class="title">
@@ -60,40 +59,40 @@
                             <div class="right-item">
                                 <div class="left">
                                     <div class="content">
-                                        第三代半导体发展蓝图模块，模版指数飙升至10%备受国外青睐
+                                        義家族との間】メンタル不調の無職夫と義母とのタワマン暮らし。
                                     </div>
                                     <div class="time">
-                                        2017/04/03
+                                        2023/12/29
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <img src="../../assets/imgs/userava_1.jpg" alt="">
+                                    <img src="https://newsatcl-pctr.c.yimg.jp/t/amd-img/20231229-00010003-voce-000-1-view.jpg?pri=l&w=450&h=382&exp=10800" alt="">
                                 </div>
                             </div>
                             <div class="right-item">
                                 <div class="left">
                                     <div class="content">
-                                        第三代半导体发展蓝图模块，模版指数飙升至10%备受国外青睐
+                                        絶品！肉とサラダ「冬のおもてなし」喜ばれるレシピ3選
                                     </div>
                                     <div class="time">
-                                        2017/04/03
+                                        2023/12/30
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <img src="../../assets/imgs/userava_1.jpg" alt="">
+                                    <img src="https://newsatcl-pctr.c.yimg.jp/t/amd-img/20231229-00010006-seraijp-000-1-view.jpg?pri=l&w=450&h=300&exp=10800" alt="">
                                 </div>
                             </div>
                             <div class="right-item">
                                 <div class="left">
                                     <div class="content">
-                                        第三代半导体发展蓝图模块，模版指数飙升至10%备受国外青睐
+                                        デートで着たい、女子ウケ必至のほっこりニット3選。
                                     </div>
                                     <div class="time">
-                                        2017/04/03
+                                        2023/12/28
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <img src="../../assets/imgs/userava_1.jpg" alt="">
+                                    <img src="https://newsatcl-pctr.c.yimg.jp/t/amd-img/20231229-00010000-eclat-000-1-view.jpg?pri=l&w=450&h=450&exp=10800" alt="">
                                 </div>
                             </div>
                         </div>
